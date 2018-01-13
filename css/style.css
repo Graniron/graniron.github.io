@@ -1,12 +1,20 @@
 body {
   margin: 0;
+  padding: 20px;
   background: url('https://codepen.io/AlienPiglet/pen/hvekG/image/large.png');
   background-size: cover;
+  height: 100vh;
   overflow-x: hidden;
 }
 
+.controls {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
 .container {
-  min-height: 100vh;
+  height: 90vh;
   position: relative;
 }
 

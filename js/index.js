@@ -9,6 +9,7 @@ const timings = {
   fill: 'forwards'
 };
 const kEffects = [];
+let animation;
 
 function getFrames() {
   return [
@@ -38,10 +39,25 @@ function slideshow() {
   })
   const group = new SequenceEffect(kEffects);
 
-  document.timeline.play(group);
+  animation = document.timeline.play(group);
 }
 
 
 window.addEventListener('load', function() {
   imagesLoaded(imgs, slideshow);
 })
+
+
+// Animations controls
+function togglePlay() {
+  console.log(animation);
+  if (animation.playState === 'running') {
+    animation.pause();
+  } else {
+    animation.play();
+  }
+}
+
+function reverse() {
+  animation.reverse();
+}
