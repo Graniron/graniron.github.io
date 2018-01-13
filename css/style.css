@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  background: url('https://codepen.io/AlienPiglet/pen/hvekG/image/large.png');
+  background-size: cover;
+  overflow-x: hidden;
+}
+
+.container {
+  min-height: 100vh;
+  position: relative;
+}
+
+.container img {
+  width: 33%;
+  opacity: 0;
+  border: 1.4vw solid #eee;
+}
