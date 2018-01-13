@@ -41,4 +41,7 @@ function slideshow() {
   document.timeline.play(group);
 }
 
-imagesLoaded(imgs, slideshow);
+
+window.addEventListener('load', function() {
+  imagesLoaded(imgs, slideshow);
+})
