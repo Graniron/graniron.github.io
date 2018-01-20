@@ -13,6 +13,18 @@ body {
   z-index: 1;
 }
 
+button {
+  background: #348C90;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  font-size: 16px;
+  outline: none;
+  letter-spacing: 1px;
+  padding: 5px 10px;
+}
+
 .container {
   height: 90vh;
   position: relative;

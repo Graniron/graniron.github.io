@@ -1,15 +1,16 @@
-function getRandom(min, max) {
-  return Math.random() * (max - min) + min;
-}
-
 const imgs = document.querySelectorAll('img');
 const imgsArr = [...imgs];
+
 const timings = {
   duration: 2000,
   fill: 'forwards'
 };
 const kEffects = [];
 let animation;
+
+function getRandom(min, max) {
+  return Math.random() * (max - min) + min;
+}
 
 function getFrames() {
   return [
@@ -36,21 +37,25 @@ function slideshow() {
       kEffects.push(
         new KeyframeEffect(img, getFrames(), timings)
       ) 
-  })
+  });
+
   const group = new SequenceEffect(kEffects);
+  // const group = new GroupEffect(kEffects);
 
   animation = document.timeline.play(group);
+  animation.pause();
+  animation.onfinish = resetOnFinish;
 }
 
 
 window.addEventListener('load', function() {
+  // after all 'imgs' loaded invoke callback 'slideshow'
   imagesLoaded(imgs, slideshow);
 })
 
 
 // Animations controls
 function togglePlay() {
-  console.log(animation);
   if (animation.playState === 'running') {
     animation.pause();
   } else {
@@ -59,5 +64,12 @@ function togglePlay() {
 }
 
 function reverse() {
-  animation.reverse();
+  animation.reverse();  
 }
+
+function resetOnFinish() {
+  animation.playbackRate = 1;
+  animation.pause();
+}
+
+
